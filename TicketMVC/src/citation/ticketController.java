@@ -63,7 +63,7 @@ public class ticketController {
                     String permitNo = GUI.getPermitTF().getText();
                     String vehicle = GUI.getVehicleTF().getText();
                     String color = GUI.getColorTF().getText();
-                    String violation = GUI.getViolation1();
+                    String violation = GUI.getOtherViolationTF().getText();
                     String date = GUI.getDateTF().getText();
                     String time = GUI.getTimeTF().getText();
                     String location = GUI.getLocationTF().getText();
@@ -88,6 +88,8 @@ public class ticketController {
                         violation = GUI.getViolation7();
                     if(GUI.getBox8().isSelected())
                         violation = GUI.getViolation8();
+                    if(GUI.getBox9().isSelected())
+                        violation = GUI.getOtherViolationTF().getText();
                     
                     
                     

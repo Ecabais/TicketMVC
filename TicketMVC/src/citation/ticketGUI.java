@@ -23,6 +23,8 @@ import javafx.scene.text.FontWeight;
  * @author elyvic
  */
 public class ticketGUI extends BorderPane {
+
+
     private BorderPane root = new BorderPane();
     private GridPane gridpane = new GridPane();
 
@@ -89,6 +91,7 @@ public class ticketGUI extends BorderPane {
     private TextField issuedByTF = new TextField();
     
     private Label ViolationLabel = new Label("Violation");
+    private TextField otherViolationTF = new TextField();
     
     private String violation1 = "vehicle has no Permit";
     private String violation2 = "Parked in no Parking Area/Space";
@@ -98,6 +101,7 @@ public class ticketGUI extends BorderPane {
     private String violation6 = "Blocking Driveway, Access, or Other Vehicle";
     private String violation7 = "Parked in 2 spaces";
     private String violation8 = "Expired Meter";
+    private String violation9 = "Other:";
     
     //checkboxes
     private CheckBox box1 = new CheckBox(violation1);
@@ -108,6 +112,7 @@ public class ticketGUI extends BorderPane {
     private CheckBox box6 = new CheckBox(violation6);
     private CheckBox box7 = new CheckBox(violation7);
     private CheckBox box8 = new CheckBox(violation8);
+    private CheckBox box9 = new CheckBox(violation9);
      
     
     //All Buttons
@@ -119,6 +124,7 @@ public class ticketGUI extends BorderPane {
     private Button previousBtn = new Button("<<");
     
     private HBox arrowBtnHbox = new HBox(previousBtn, nextBtn);
+    private HBox otherViolationHbox = new HBox(box9, otherViolationTF);
     
     //all VBox
     private VBox LicensenoVBox = new VBox(licenseLabel, licenseTF);
@@ -130,7 +136,7 @@ public class ticketGUI extends BorderPane {
     private VBox timeVBox = new VBox(timeLabel, timeTF);
     private VBox locationVBox = new VBox(locationLabel, locationTF);
     private VBox issuedByVBox = new VBox(issuedByLabel, issuedByTF);
-    private VBox checkboxVbox = new VBox(ViolationLabel,box1, box2, box3, box4, box5, box6, box7, box8);
+    private VBox checkboxVbox = new VBox(ViolationLabel,box1, box2, box3, box4, box5, box6, box7, box8, otherViolationHbox);
     private VBox viewBtnVbox = new VBox(viewBtn, arrowBtnHbox, clearViewBtn);
  
     private VBox feedbackVBox = new VBox(feedbackLabel, feedbackTA, feedbackSubmitBtn); 
@@ -139,6 +145,7 @@ public class ticketGUI extends BorderPane {
     //all Hbox
     private HBox titleHBox = new HBox(getImageIV(), getTitleLabel());
     private HBox viewVbox = new HBox(viewBtnVbox, viewTA);
+    
     
     /***************
     *  Constructor *
@@ -170,7 +177,7 @@ public class ticketGUI extends BorderPane {
         box6.setFont(Font.font("Times New Roman", FontWeight.LIGHT, 15));
         box7.setFont(Font.font("Times New Roman", FontWeight.LIGHT, 15));
         box8.setFont(Font.font("Times New Roman", FontWeight.LIGHT, 15));
-        
+        box9.setFont(Font.font("Times New Roman", FontWeight.LIGHT, 15));
         
         /*************************
         *  gridpane positioning  *
@@ -294,6 +301,7 @@ public class ticketGUI extends BorderPane {
         permitTF.clear();
         vehicleTF.clear();
         colorTF.clear();
+        otherViolationTF.clear();
         dateTF.clear();
         timeTF.clear();
         locationTF.clear();
@@ -1000,5 +1008,61 @@ public class ticketGUI extends BorderPane {
      */
     public void setPreviousBtn(Button previousBtn) {
         this.previousBtn = previousBtn;
+    }
+
+    /**
+     * @return the violation9
+     */
+    public String getViolation9() {
+        return violation9;
+    }
+
+    /**
+     * @param violation9 the violation9 to set
+     */
+    public void setViolation9(String violation9) {
+        this.violation9 = violation9;
+    }
+
+    /**
+     * @return the arrowBtnHbox
+     */
+    public HBox getArrowBtnHbox() {
+        return arrowBtnHbox;
+    }
+
+    /**
+     * @param arrowBtnHbox the arrowBtnHbox to set
+     */
+    public void setArrowBtnHbox(HBox arrowBtnHbox) {
+        this.arrowBtnHbox = arrowBtnHbox;
+    }
+    
+        /**
+     * @return the box9
+     */
+    public CheckBox getBox9() {
+        return box9;
+    }
+
+    /**
+     * @param box9 the box9 to set
+     */
+    public void setBox9(CheckBox box9) {
+        this.box9 = box9;
+    }
+
+    /**
+     * @return the otherViolationTF
+     */
+    public TextField getOtherViolationTF() {
+        return otherViolationTF;
+    }
+
+    /**
+     * @param otherViolationTF the otherViolationTF to set
+     */
+    public void setOtherViolationTF(TextField otherViolationTF) {
+        this.otherViolationTF = otherViolationTF;
     }
 }
