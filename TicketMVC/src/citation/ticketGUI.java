@@ -131,7 +131,7 @@ public class ticketGUI extends BorderPane {
     private VBox locationVBox = new VBox(locationLabel, locationTF);
     private VBox issuedByVBox = new VBox(issuedByLabel, issuedByTF);
     private VBox checkboxVbox = new VBox(ViolationLabel,box1, box2, box3, box4, box5, box6, box7, box8);
-    private VBox viewBtnVbox = new VBox(viewBtn, clearViewBtn, nextBtn, previousBtn);
+    private VBox viewBtnVbox = new VBox(viewBtn, arrowBtnHbox, clearViewBtn);
  
     private VBox feedbackVBox = new VBox(feedbackLabel, feedbackTA, feedbackSubmitBtn); 
     private VBox paymentInfoVbox = new VBox(paymentInfoLabel, paymentTextLabel);
