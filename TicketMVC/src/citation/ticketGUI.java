@@ -24,7 +24,7 @@ import javafx.scene.text.FontWeight;
  */
 public class ticketGUI extends BorderPane {
 
-
+    private int count = 0;
     private BorderPane root = new BorderPane();
     private GridPane gridpane = new GridPane();
 
@@ -230,6 +230,43 @@ public class ticketGUI extends BorderPane {
     
     }
     
+    public void updateViewNext(ArrayList<ticket> currentData){
+       
+        String licenseNo = "";
+        String state = "";
+        String permitNo = "";
+        String vehicle  = "";
+        String color = "";
+        String date = "";
+        String violation = "";
+        String time = "";
+        String location = "";
+        String issuedby = "";
+        String currentTicket = "";
+       
+       ticket current = (ticket) currentData.get(count);
+       licenseNo = current.getLicenseNo();
+       state = current.getState();
+       permitNo =  current.getPermitNo();
+       vehicle  = current.getVehicle();
+       color = current.getColor();
+       date = current.getDate();
+       violation = current.getViolation();
+       time = current.getTime();
+       location = current.getLocation();
+       issuedby = current.getIssuedby();
+       currentTicket += licenseNo + "\n" + state + "\n" + permitNo + "\n" + vehicle + "\n" + color + "\n" + violation + "\n" + date + "\n" + time + "\n" + location + "\n" + issuedby + "\n\n";
+       
+       
+       count++;
+       
+       
+       
+       
+       
+       viewTA.setText(currentTicket);
+   }
+    
     	
     
     /*****************************
@@ -289,6 +326,11 @@ public class ticketGUI extends BorderPane {
         
        
     }
+    
+    public void Error(){
+     String error = "Error!!";
+     viewTA.setText(error);
+   }
     
     /*************************
     *  clearFields function  *

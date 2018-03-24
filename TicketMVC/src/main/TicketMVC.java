@@ -21,6 +21,7 @@ public class TicketMVC extends Application {
         ticketModel TicketModel = new ticketModel();
         ticketController controller = new ticketController(TicketModel, GUI);
         
+       
         
         Scene scene = new Scene(GUI, 1450, 800);
         
