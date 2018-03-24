@@ -43,7 +43,7 @@ public class ticketController {
                   ArrayList<ticket> Tickets = TicketModel.getCurrentTickets();
 		 	
 		GUI.updateTicketGUIAll(Tickets);
-                TicketModel.ReadFile();
+                GUI.ClearViewTA();
                 }
                 }
              
@@ -135,7 +135,7 @@ public class ticketController {
                 {
                     ArrayList<ticket> currentData = TicketModel.getCurrentTickets();
                 GUI.updateViewNext(currentData);
-                TicketModel.ReadFile();
+                
                 }
                 }
       
@@ -147,8 +147,20 @@ public class ticketController {
                 public void handle(ActionEvent event)
                 {
                     ArrayList<ticket> currentData = TicketModel.getCurrentTickets();
-                GUI.updateViewNext(currentData);
-                TicketModel.ReadFile();
+                GUI.updateViewPrevious(currentData);
+                
+                }
+                }
+      
+      );
+      
+      GUI.getOpenBtn().setOnAction(
+                new EventHandler<ActionEvent>(){
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    TicketModel.ReadFile();
+                
                 }
                 }
       

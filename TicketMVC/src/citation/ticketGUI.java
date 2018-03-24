@@ -10,7 +10,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -122,6 +121,7 @@ public class ticketGUI extends BorderPane {
     private Button clearViewBtn = new Button("Clear");
     private Button nextBtn = new Button(">>");
     private Button previousBtn = new Button("<<");
+    private Button openBtn = new Button("Open File");
     
     private HBox arrowBtnHbox = new HBox(previousBtn, nextBtn);
     private HBox otherViolationHbox = new HBox(box9, otherViolationTF);
@@ -137,7 +137,7 @@ public class ticketGUI extends BorderPane {
     private VBox locationVBox = new VBox(locationLabel, locationTF);
     private VBox issuedByVBox = new VBox(issuedByLabel, issuedByTF);
     private VBox checkboxVbox = new VBox(ViolationLabel,box1, box2, box3, box4, box5, box6, box7, box8, otherViolationHbox);
-    private VBox viewBtnVbox = new VBox(viewBtn, arrowBtnHbox, clearViewBtn);
+    private VBox viewBtnVbox = new VBox(getOpenBtn(),viewBtn, arrowBtnHbox, clearViewBtn);
  
     private VBox feedbackVBox = new VBox(feedbackLabel, feedbackTA, feedbackSubmitBtn); 
     private VBox paymentInfoVbox = new VBox(paymentInfoLabel, paymentTextLabel);
@@ -230,6 +230,21 @@ public class ticketGUI extends BorderPane {
     
     }
     
+    //other methods
+    
+    public void ClearViewTA()
+    {
+        Boolean clickedTwice = false;
+       
+        if(clickedTwice == true){
+       viewTA.clear();
+       clickedTwice = false;
+        }
+       else
+       clickedTwice = true;
+    }
+    
+    
     public void updateViewNext(ArrayList<ticket> currentData){
        
         String licenseNo = "";
@@ -266,6 +281,43 @@ public class ticketGUI extends BorderPane {
        
        viewTA.setText(currentTicket);
    }
+    
+        public void updateViewPrevious(ArrayList<ticket> currentData){
+       
+        String licenseNo = "";
+        String state = "";
+        String permitNo = "";
+        String vehicle  = "";
+        String color = "";
+        String date = "";
+        String violation = "";
+        String time = "";
+        String location = "";
+        String issuedby = "";
+        String currentTicket = "";
+       
+       ticket current = (ticket) currentData.get(count);
+       licenseNo = current.getLicenseNo();
+       state = current.getState();
+       permitNo =  current.getPermitNo();
+       vehicle  = current.getVehicle();
+       color = current.getColor();
+       date = current.getDate();
+       violation = current.getViolation();
+       time = current.getTime();
+       location = current.getLocation();
+       issuedby = current.getIssuedby();
+       currentTicket += licenseNo + "\n" + state + "\n" + permitNo + "\n" + vehicle + "\n" + color + "\n" + violation + "\n" + date + "\n" + time + "\n" + location + "\n" + issuedby + "\n\n";
+       
+       
+       count--;
+       
+       
+       
+       
+       
+       viewTA.setText(currentTicket);
+        }
     
     	
     
@@ -1106,5 +1158,19 @@ public class ticketGUI extends BorderPane {
      */
     public void setOtherViolationTF(TextField otherViolationTF) {
         this.otherViolationTF = otherViolationTF;
+    }
+
+    /**
+     * @return the openBtn
+     */
+    public Button getOpenBtn() {
+        return openBtn;
+    }
+
+    /**
+     * @param openBtn the openBtn to set
+     */
+    public void setOpenBtn(Button openBtn) {
+        this.openBtn = openBtn;
     }
 }

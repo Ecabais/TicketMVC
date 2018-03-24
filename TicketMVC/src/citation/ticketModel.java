@@ -75,7 +75,7 @@ public class ticketModel {
             String time = currentTicket.getTime();
             String issuedby = currentTicket.getIssuedby();
             
-            tix.write(licenseNo + " " + permitNo + " " + state + " " + vehicle + " " + color+ " " + violation + " " + date + " " + location + time + " " + issuedby +"\n");
+            tix.write(licenseNo + "\n" + permitNo + "\n " + state + " \n" + vehicle + "\n " + color+ "\n " + violation + "\n " + date + "\n" + location + time + "\n " + issuedby +"\n\n");
             
            
         
@@ -103,16 +103,16 @@ public class ticketModel {
             
             
             while(input.hasNext()){
-            String licenseNo = input.next();
-            String state = input.next();
-            String permitNo =  input.next();
-            String vehicle  = input.next();
-            String color = input.next();
-            String date = input.next();
-            String violation = input.next();
-            String time = input.next();
-            String location = input.next();
-            String issuedby = input.next();
+            String licenseNo = input.nextLine();
+            String state = input.nextLine();
+            String permitNo =  input.nextLine();
+            String vehicle  = input.nextLine();
+            String color = input.nextLine();
+            String date = input.nextLine();
+            String violation = input.nextLine();
+            String time = input.nextLine();
+            String location = input.nextLine();
+            String issuedby = input.nextLine();
                
                ticket currentData = new ticket(licenseNo,state,permitNo,vehicle,color,date,violation,time,location,issuedby);
                ticketDB.add(currentData);
