@@ -2,6 +2,7 @@ package citation;
 
 
 import java.util.ArrayList;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -22,9 +23,10 @@ import javafx.scene.text.FontWeight;
  * @author elyvic
  */
 public class ticketGUI extends BorderPane {
-
+    
+ 
     private int count = 0;
-    private BorderPane root = new BorderPane();
+    
     private GridPane gridpane = new GridPane();
 
     //labels and image for the tile setTop  
@@ -137,14 +139,14 @@ public class ticketGUI extends BorderPane {
     private VBox locationVBox = new VBox(locationLabel, locationTF);
     private VBox issuedByVBox = new VBox(issuedByLabel, issuedByTF);
     private VBox checkboxVbox = new VBox(ViolationLabel,box1, box2, box3, box4, box5, box6, box7, box8, otherViolationHbox);
-    private VBox viewBtnVbox = new VBox(getOpenBtn(),viewBtn, arrowBtnHbox, clearViewBtn);
+    private VBox viewBtnVbox = new VBox(arrowBtnHbox, viewBtn, clearViewBtn);
  
     private VBox feedbackVBox = new VBox(feedbackLabel, feedbackTA, feedbackSubmitBtn); 
     private VBox paymentInfoVbox = new VBox(paymentInfoLabel, paymentTextLabel);
     
     //all Hbox
     private HBox titleHBox = new HBox(getImageIV(), getTitleLabel());
-    private HBox viewVbox = new HBox(viewBtnVbox, viewTA);
+    private HBox viewHbox = new HBox(viewBtnVbox, viewTA);
     
     
     /***************
@@ -156,6 +158,7 @@ public class ticketGUI extends BorderPane {
         gridpane.setVgap(15);
         gridpane.setHgap(15);
         gridpane.setAlignment(Pos.CENTER);
+        BorderPane.setMargin(gridpane, new Insets(10,10,10,10));
         
         //fonts and size
         licenseLabel.setFont(Font.font("Times New Roman", FontWeight.LIGHT, 16));
@@ -203,6 +206,10 @@ public class ticketGUI extends BorderPane {
         viewTA.setEditable(false);
         viewTA.setPrefHeight(300);
         viewTA.setPrefWidth(400);
+        viewBtnVbox.setSpacing(5);
+        viewHbox.setSpacing(5);
+        BorderPane.setMargin(viewHbox, new Insets(10,10,10,10));
+        
         
         
         //modification setTop of borderpane
@@ -216,6 +223,11 @@ public class ticketGUI extends BorderPane {
        //modification of setRight of the borderpane.
        paymentInfoLabel.setFont(Font.font("Times New Roman", FontWeight.MEDIUM, 20));
        paymentTextLabel.setFont(Font.font("Times New Roman", FontWeight.MEDIUM, 16));
+       BorderPane.setMargin(paymentTextLabel, new Insets(10,10,10,10));
+       BorderPane.setMargin(paymentInfoLabel, new Insets(10,10,10,10));
+       
+       //modification of setBottom of the borderpane.
+       BorderPane.setMargin(feedbackVBox, new Insets(10,10,10,10));
         
         /*
         Positions on the borderpane
@@ -223,7 +235,7 @@ public class ticketGUI extends BorderPane {
      
         this.setTop(titleHBox);
         this.setBottom(feedbackVBox);
-        this.setLeft(viewVbox);
+        this.setLeft(viewHbox);
         this.setCenter(gridpane);
         this.setRight(paymentInfoVbox);
            
@@ -413,19 +425,7 @@ public class ticketGUI extends BorderPane {
     * setters and getters *
     **********************/
 
-    /**
-     * @return the root
-     */
-    public BorderPane getRoot() {
-        return root;
-    }
-
-    /**
-     * @param root the root to set
-     */
-    public void setRoot(BorderPane root) {
-        this.root = root;
-    }
+   
 
     /**
      * @return the titleLabel

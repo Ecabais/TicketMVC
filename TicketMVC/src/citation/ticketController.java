@@ -39,11 +39,11 @@ public class ticketController {
                 @Override
                 public void handle(ActionEvent event)
                 {
-                    
-                  ArrayList<ticket> Tickets = TicketModel.getCurrentTickets();
-		 	
-		GUI.updateTicketGUIAll(Tickets);
-                GUI.ClearViewTA();
+                    TicketModel.Database();
+                    ArrayList<ticket> Tickets = TicketModel.getCurrentTickets();
+		
+                    GUI.updateTicketGUIAll(Tickets);
+                    GUI.ClearViewTA();
                 }
                 }
              
@@ -134,7 +134,7 @@ public class ticketController {
                 public void handle(ActionEvent event)
                 {
                     ArrayList<ticket> currentData = TicketModel.getCurrentTickets();
-                GUI.updateViewNext(currentData);
+                    GUI.updateViewNext(currentData);
                 
                 }
                 }
@@ -147,24 +147,13 @@ public class ticketController {
                 public void handle(ActionEvent event)
                 {
                     ArrayList<ticket> currentData = TicketModel.getCurrentTickets();
-                GUI.updateViewPrevious(currentData);
+                    GUI.updateViewPrevious(currentData);
                 
                 }
                 }
       
       );
       
-      GUI.getOpenBtn().setOnAction(
-                new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event)
-                {
-                    TicketModel.ReadFile();
-                
-                }
-                }
-      
-      );
     }
     
     

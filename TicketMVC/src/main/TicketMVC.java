@@ -23,7 +23,7 @@ public class TicketMVC extends Application {
         
        
         
-        Scene scene = new Scene(GUI, 1450, 800);
+        Scene scene = new Scene(GUI, 1475, 825);
         
         primaryStage.setTitle("Ticket Citation");
         primaryStage.setScene(scene);
